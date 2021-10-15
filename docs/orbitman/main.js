@@ -64,9 +64,9 @@ function update() {
     });
     nextPlanetDist += radius * rnd(1, 2);
   }
-  man.angle += difficulty * 0.03 * man.av;
+  man.angle += difficulty * 0.03 * man.av;  //sets the angle of the man, the right side controls the speed at which it rotates (could even just use .03) this is what I need
   color("light_blue");
-  bar(man.planet.pos, 99, 4, man.angle, -man.planet.radius * 0.015);
+  bar(man.planet.pos, 99, 4, man.angle, -man.planet.radius * 0.015);  //draws a bar at that position
   color("black");
   let nextPlanet;
   let maxDist = 0;

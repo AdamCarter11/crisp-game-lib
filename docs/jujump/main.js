@@ -17,11 +17,13 @@ let jumpWay;
 let jumpPower;
 let floorAppDist;
 let scr;
+let testVar;
 
 function update() {
   if (!ticks) {
     p = vec(50, 50);
     v = vec();
+    testVar = vec(50,50);
     floors = [vec(50, 70)];
     jumpWay = jumpPower = floorAppDist = 1;
   }
@@ -32,11 +34,12 @@ function update() {
     floorAppDist = rnd(99);
     floors.push(vec(rnd(99), -9));
   }
-  p.y += scr;
+  //p.y += scr;
+  testVar.y+=.1;
   color("blue");
   floors = floors.filter((f) => {
     f.y += scr;
-    box(f, 33, 7);
+    box(testVar, 33, 7);  // box(f, 33, 7); //pos, width, height
     return f.y < 99;
   });
   color("transparent");
@@ -44,9 +47,11 @@ function update() {
     if (!box(p, 7, 7).isColliding.rect.blue) {
       break;
     }
-    p.y--;
-    v.set();
-    jumpPower = 1;
+    p.y = testVar.y;  //players y value gets smaller (p.y--;)
+    p.x = 0;
+    v.y = 0;
+    //v.set(); //sets players vector to 0
+    jumpPower = 1;  //resets players jump
   }
   color("green");
   box(p, 7, 7);

@@ -134,6 +134,7 @@ function update() {
   }
   pi--;
   let speed = 1;
+  //lines 138-163 have to do with the pressing/holding
   if (input.isPressed && !isFirstPressing) {
     if (pi < 0) {
       const p = {
